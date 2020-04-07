@@ -29,10 +29,10 @@
     self.navigationItem.title = @"解耦";
     [self.view addSubview:self.tableView];
 }
+
 - (void)getData {
     weakself(self);
     NSString *strUrl = [NSString stringWithFormat:@"http://mock-api.com/7zxXywz3.mock/logisticsTrack"];
-    // 对汉字进行转义
     strUrl = [strUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSURL *url = [NSURL URLWithString:strUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -72,7 +72,6 @@
 }
 
 - (UITableViewCell *)itemOfLogisticsTrackView:(GHLogisticsTrackViewController *)logisticsTrackView tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
-    
     GHLogisticsTrackStatusModel *logisticsTrackStatusModel = self.logisticsTrackModel.list[indexPath.section];
     [tableView registerClass:[GHLogisticsTrackExampleStyle1Cell class] forCellReuseIdentifier:@"GHLogisticsTrackExampleStyle1CellID"];
     [tableView registerClass:[GHLogisticsTrackExampleStyle1LastCell class] forCellReuseIdentifier:@"GHLogisticsTrackExampleStyle1LastCellID"];
@@ -80,11 +79,17 @@
         if (indexPath.section == 0) {
             GHLogisticsTrackExampleStyle1LastCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1LastCellID"];
             cell.indexPath = indexPath;
+            cell.didClickPhoneNumberBlock = ^(NSString * _Nonnull number) {
+                NSLog(@"number:%@",number);
+            };
             cell.logisticsTrackModel = self.logisticsTrackModel;
             cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
             return cell;
         }
         GHLogisticsTrackExampleStyle1Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1CellID"];
+        cell.didClickPhoneNumberBlock = ^(NSString * _Nonnull number) {
+            NSLog(@"number:%@",number);
+        };
         cell.indexPath = indexPath;
         cell.logisticsTrackModel = self.logisticsTrackModel;
         cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
@@ -94,6 +99,9 @@
     cell.indexPath = indexPath;
     cell.logisticsTrackModel = self.logisticsTrackModel;
     cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
+    cell.didClickPhoneNumberBlock = ^(NSString * _Nonnull number) {
+        NSLog(@"number:%@",number);
+    };
     return cell;
 }
 
@@ -116,17 +124,8 @@
     }
 }
 
-- (void)callWithNumber:(NSString *)number {
-    NSString *callPhone = [NSString stringWithFormat:@"telprompt://%@",number];
-    if (@available(iOS 10.0, *)) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone] options:@{} completionHandler:nil];
-    } else {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone]];
-    }
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -142,8 +141,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.indexPath = indexPath;
- 
-    GHLogisticsTrackViewController *vc = [[GHLogisticsTrackViewController alloc]init];
+    
+    GHLogisticsTrackViewController *vc = [[GHLogisticsTrackViewController alloc] init];
     if (indexPath.row == 0) {
         vc.navTitle = @"样式1";
     } else {
@@ -165,7 +164,6 @@
         _tableView.dataSource = self;
         _tableView.tableFooterView = [UIView new];
         _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCellID"];
     }
     return _tableView;

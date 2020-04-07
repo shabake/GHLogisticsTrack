@@ -10,6 +10,7 @@
 #import "GHLogisticsTrackModel.h"
 #import "GHLogisticsTrackStatusModel.h"
 #import "NSString+GH.h"
+#import "UITextView+Category.h"
 
 @interface GHLogisticsTrackExampleStyle1Cell()<UITextViewDelegate>
 

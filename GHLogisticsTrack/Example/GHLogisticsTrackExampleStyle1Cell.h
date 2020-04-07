@@ -12,13 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class GHLogisticsTrackStatusModel,GHLogisticsTrackModel;
 
-typedef void (^GHLogisticsTrackLastCellDidClickPhoneNumberBlock)(NSString *number);
+typedef void (^GHLogisticsTrackExampleStyle1CellDidClickPhoneNumberBlock)(NSString *number);
 
 
 @interface GHLogisticsTrackExampleStyle1Cell : UITableViewCell
 
-@property (nonatomic , copy) GHLogisticsTrackLastCellDidClickPhoneNumberBlock didClickPhoneNumberBlock;
-
+@property (nonatomic , copy) GHLogisticsTrackExampleStyle1CellDidClickPhoneNumberBlock didClickPhoneNumberBlock;
 
 @property (nonatomic , strong) NSIndexPath *indexPath;
 

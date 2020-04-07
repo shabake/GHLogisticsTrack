@@ -10,6 +10,7 @@
 #import "GHLogisticsTrackModel.h"
 #import "GHLogisticsTrackStatusModel.h"
 #import "NSString+GH.h"
+#import "UITextView+Category.h"
 
 @interface GHLogisticsTrackExampleStyle1LastCell()<UITextViewDelegate>
 
@@ -74,7 +75,6 @@
     }
     return NO;
 }
-
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self == [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
