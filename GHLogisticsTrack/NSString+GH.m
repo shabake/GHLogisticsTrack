@@ -8,8 +8,6 @@
 
 #import "NSString+GH.h"
 
-
-
 @implementation NSString (GH)
 
 + (CGSize)sizeWithText:(NSString *)text andFont:(UIFont *)font andMaxSize:(CGSize)maxSize

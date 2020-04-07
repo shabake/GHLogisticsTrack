@@ -12,10 +12,6 @@
 #import "GHLogisticsTrackLastCell.h"
 #import "GHLogisticsTrackModel.h"
 #import "GHLogisticsTrackStatusModel.h"
-#import <objc/runtime.h>
-#import "UIView+Model.h"
-
-static char *kLogisticsTrackheaderKey = "kLogisticsTrackheaderKey";
 
 @interface GHLogisticsTrackViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -26,6 +22,10 @@ static char *kLogisticsTrackheaderKey = "kLogisticsTrackheaderKey";
 @end
 
 @implementation GHLogisticsTrackViewController
+
+- (void)setDelegate:(id<GHLogisticsTrackViewDelagte>)delegate {
+    _delegate = delegate;
+}
 
 - (void)getData {
     weakself(self);
@@ -64,9 +64,16 @@ static char *kLogisticsTrackheaderKey = "kLogisticsTrackheaderKey";
     }];
 }
 
+- (void)reloadData {
+    if (self.reloadDataBlock) {
+        self.reloadDataBlock();
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"物流轨迹";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"刷新" style:UIBarButtonItemStylePlain target:self action:@selector(reloadData)];
     [self setupUI];
     [self getData];
 }
@@ -74,10 +81,6 @@ static char *kLogisticsTrackheaderKey = "kLogisticsTrackheaderKey";
 - (void)setupUI {
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.header;
-}
-
-- (void)setDelegate:(id<GHLogisticsTrackViewDelagte>)delegate {
-    _delegate = delegate;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -97,7 +100,7 @@ static char *kLogisticsTrackheaderKey = "kLogisticsTrackheaderKey";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.logisticsTrackModel.list.count;
+    return [self.delegate numberOfSectionsInLogisticsTrackView:self tableView:tableView];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -105,41 +108,18 @@ static char *kLogisticsTrackheaderKey = "kLogisticsTrackheaderKey";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return [self.delegate logisticsTrackView:self tableView:tableView numberOfRowsInSection:section];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        return [GHLogisticsTrackLastCell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
-    } else {
-        return [GHLogisticsTrackCell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
-    }
+    return [self.delegate logisticsTrackView:self tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    GHLogisticsTrackStatusModel *logisticsTrackStatusModel = self.logisticsTrackModel.list[indexPath.section];
-    
-    if (indexPath.section == 0 ) {
-        GHLogisticsTrackLastCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackLastCellID"];
-        cell.indexPath = indexPath;
-        cell.logisticsTrackModel = self.logisticsTrackModel;
-        cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
-        weakself(self);
-        cell.didClickPhoneNumberBlock = ^(NSString * _Nonnull number) {
-            [weakSelf callWithNumber:number];
-        };
-        return cell;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(itemOfLogisticsTrackView:tableView:indexPath:)]) {
+        return [self.delegate itemOfLogisticsTrackView:self tableView:tableView indexPath:indexPath];
     }
-    GHLogisticsTrackCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackCellID"];
-    cell.indexPath = indexPath;
-    cell.logisticsTrackModel = self.logisticsTrackModel;
-    cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
-    weakself(self);
-        cell.didClickPhoneNumberBlock = ^(NSString * _Nonnull number) {
-            [weakSelf callWithNumber:number];
-    };
-    return cell;
+    return [UITableViewCell new];
 }
 
 - (void)callWithNumber:(NSString *)number {

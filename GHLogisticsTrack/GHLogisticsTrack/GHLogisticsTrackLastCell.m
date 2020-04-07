@@ -179,4 +179,5 @@
     }
     return _icon;
 }
+
 @end
