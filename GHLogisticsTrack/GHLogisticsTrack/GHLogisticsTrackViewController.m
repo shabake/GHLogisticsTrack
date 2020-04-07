@@ -66,8 +66,9 @@
 
 - (void)reloadData {
     if (self.reloadDataBlock) {
-        self.reloadDataBlock();
+        self.reloadDataBlock(self.tableView);
     }
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad {

@@ -64,7 +64,7 @@
     GHLogisticsTrackViewController *vc = [[GHLogisticsTrackViewController alloc]init];
     vc.delegate = self;
     weakself(self);
-    vc.reloadDataBlock = ^{
+    vc.reloadDataBlock = ^(UITableView * _Nonnull tableView) {
         [weakSelf getData];
     };
     [self.navigationController pushViewController:vc animated:YES];
