@@ -1,0 +1,6 @@
+framework module Pods_GHLogisticsTrack_GHLogisticsTrackUITests {
+  umbrella header "Pods-GHLogisticsTrack-GHLogisticsTrackUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

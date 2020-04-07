@@ -1,0 +1,808 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04525542239A14970075ACC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04525541239A14970075ACC8 /* AppDelegate.m */; };
+		04525548239A14970075ACC8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04525547239A14970075ACC8 /* ViewController.m */; };
+		0452554D239A149D0075ACC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0452554C239A149D0075ACC8 /* Assets.xcassets */; };
+		04525550239A149D0075ACC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0452554E239A149D0075ACC8 /* LaunchScreen.storyboard */; };
+		04525553239A149D0075ACC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04525552239A149D0075ACC8 /* main.m */; };
+		0452555D239A149D0075ACC8 /* GHLogisticsTrackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452555C239A149D0075ACC8 /* GHLogisticsTrackTests.m */; };
+		04525568239A149D0075ACC8 /* GHLogisticsTrackUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04525567239A149D0075ACC8 /* GHLogisticsTrackUITests.m */; };
+		04525578239A153E0075ACC8 /* GHLogisticsTrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04525577239A153E0075ACC8 /* GHLogisticsTrackViewController.m */; };
+		0452557E239A1C9A0075ACC8 /* GHLogisticsTrackHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452557D239A1C9A0075ACC8 /* GHLogisticsTrackHeader.m */; };
+		04525582239A46940075ACC8 /* GHLogisticsTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04525581239A46940075ACC8 /* GHLogisticsTrackCell.m */; };
+		0491012C23AF62C80011C514 /* GHLogisticsTrackLastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491012B23AF62C80011C514 /* GHLogisticsTrackLastCell.m */; };
+		0491012F23AF64110011C514 /* GHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491012E23AF64110011C514 /* GHNavigationController.m */; };
+		0491013223AF65EC0011C514 /* GHLogisticsTrackModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491013123AF65EC0011C514 /* GHLogisticsTrackModel.m */; };
+		0491013523AF66490011C514 /* GHLogisticsTrackStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491013423AF66490011C514 /* GHLogisticsTrackStatusModel.m */; };
+		0491013823AF6E5B0011C514 /* NSString+GH.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491013723AF6E5B0011C514 /* NSString+GH.m */; };
+		04E61C48243B5AF400030F65 /* UIView+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E61C47243B5AF400030F65 /* UIView+Model.m */; };
+		04E61C4C243B5DF200030F65 /* GHExampleHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E61C4B243B5DF200030F65 /* GHExampleHeader.m */; };
+		A552432B900F16CF2BF3334A /* Pods_GHLogisticsTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E5645ACA204689F580D55D /* Pods_GHLogisticsTrack.framework */; };
+		D4F086101693E61FDE35795A /* Pods_GHLogisticsTrack_GHLogisticsTrackUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ADF58F2F0EB411A844CEEC /* Pods_GHLogisticsTrack_GHLogisticsTrackUITests.framework */; };
+		E6490CF64D3F02688A00D850 /* Pods_GHLogisticsTrackTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9DBC09D47E23BC277D7CEFE /* Pods_GHLogisticsTrackTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04525559239A149D0075ACC8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04525535239A14970075ACC8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0452553C239A14970075ACC8;
+			remoteInfo = GHLogisticsTrack;
+		};
+		04525564239A149D0075ACC8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04525535239A14970075ACC8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0452553C239A14970075ACC8;
+			remoteInfo = GHLogisticsTrack;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0452553D239A14970075ACC8 /* GHLogisticsTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHLogisticsTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04525540239A14970075ACC8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		04525541239A14970075ACC8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		04525546239A14970075ACC8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		04525547239A14970075ACC8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0452554C239A149D0075ACC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0452554F239A149D0075ACC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04525551239A149D0075ACC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04525552239A149D0075ACC8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04525558239A149D0075ACC8 /* GHLogisticsTrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GHLogisticsTrackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0452555C239A149D0075ACC8 /* GHLogisticsTrackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHLogisticsTrackTests.m; sourceTree = "<group>"; };
+		0452555E239A149D0075ACC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04525563239A149D0075ACC8 /* GHLogisticsTrackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GHLogisticsTrackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04525567239A149D0075ACC8 /* GHLogisticsTrackUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHLogisticsTrackUITests.m; sourceTree = "<group>"; };
+		04525569239A149D0075ACC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04525576239A153E0075ACC8 /* GHLogisticsTrackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHLogisticsTrackViewController.h; sourceTree = "<group>"; };
+		04525577239A153E0075ACC8 /* GHLogisticsTrackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHLogisticsTrackViewController.m; sourceTree = "<group>"; };
+		0452557C239A1C9A0075ACC8 /* GHLogisticsTrackHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHLogisticsTrackHeader.h; sourceTree = "<group>"; };
+		0452557D239A1C9A0075ACC8 /* GHLogisticsTrackHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHLogisticsTrackHeader.m; sourceTree = "<group>"; };
+		0452557F239A22570075ACC8 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		04525580239A46940075ACC8 /* GHLogisticsTrackCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHLogisticsTrackCell.h; sourceTree = "<group>"; };
+		04525581239A46940075ACC8 /* GHLogisticsTrackCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHLogisticsTrackCell.m; sourceTree = "<group>"; };
+		0491012A23AF62C70011C514 /* GHLogisticsTrackLastCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHLogisticsTrackLastCell.h; sourceTree = "<group>"; };
+		0491012B23AF62C80011C514 /* GHLogisticsTrackLastCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHLogisticsTrackLastCell.m; sourceTree = "<group>"; };
+		0491012D23AF64110011C514 /* GHNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHNavigationController.h; sourceTree = "<group>"; };
+		0491012E23AF64110011C514 /* GHNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHNavigationController.m; sourceTree = "<group>"; };
+		0491013023AF65EC0011C514 /* GHLogisticsTrackModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHLogisticsTrackModel.h; sourceTree = "<group>"; };
+		0491013123AF65EC0011C514 /* GHLogisticsTrackModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHLogisticsTrackModel.m; sourceTree = "<group>"; };
+		0491013323AF66490011C514 /* GHLogisticsTrackStatusModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHLogisticsTrackStatusModel.h; sourceTree = "<group>"; };
+		0491013423AF66490011C514 /* GHLogisticsTrackStatusModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHLogisticsTrackStatusModel.m; sourceTree = "<group>"; };
+		0491013623AF6E5B0011C514 /* NSString+GH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+GH.h"; sourceTree = "<group>"; };
+		0491013723AF6E5B0011C514 /* NSString+GH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+GH.m"; sourceTree = "<group>"; };
+		04E61C46243B5AF400030F65 /* UIView+Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Model.h"; sourceTree = "<group>"; };
+		04E61C47243B5AF400030F65 /* UIView+Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Model.m"; sourceTree = "<group>"; };
+		04E61C4A243B5DF200030F65 /* GHExampleHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHExampleHeader.h; sourceTree = "<group>"; };
+		04E61C4B243B5DF200030F65 /* GHExampleHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHExampleHeader.m; sourceTree = "<group>"; };
+		17A39430FC270623A9DE4333 /* Pods-GHLogisticsTrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHLogisticsTrack.debug.xcconfig"; path = "Target Support Files/Pods-GHLogisticsTrack/Pods-GHLogisticsTrack.debug.xcconfig"; sourceTree = "<group>"; };
+		31C78719E67CFD0E0A1415BE /* Pods-GHLogisticsTrack-GHLogisticsTrackUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHLogisticsTrack-GHLogisticsTrackUITests.debug.xcconfig"; path = "Target Support Files/Pods-GHLogisticsTrack-GHLogisticsTrackUITests/Pods-GHLogisticsTrack-GHLogisticsTrackUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		50ADF58F2F0EB411A844CEEC /* Pods_GHLogisticsTrack_GHLogisticsTrackUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GHLogisticsTrack_GHLogisticsTrackUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		605C79654099F8ABD9791C7A /* Pods-GHLogisticsTrack-GHLogisticsTrackUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHLogisticsTrack-GHLogisticsTrackUITests.release.xcconfig"; path = "Target Support Files/Pods-GHLogisticsTrack-GHLogisticsTrackUITests/Pods-GHLogisticsTrack-GHLogisticsTrackUITests.release.xcconfig"; sourceTree = "<group>"; };
+		68BEA8485BCC6503BA74E02B /* Pods-GHLogisticsTrackTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHLogisticsTrackTests.debug.xcconfig"; path = "Target Support Files/Pods-GHLogisticsTrackTests/Pods-GHLogisticsTrackTests.debug.xcconfig"; sourceTree = "<group>"; };
+		690CECA7DD1122874AB0922D /* Pods-GHLogisticsTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHLogisticsTrack.release.xcconfig"; path = "Target Support Files/Pods-GHLogisticsTrack/Pods-GHLogisticsTrack.release.xcconfig"; sourceTree = "<group>"; };
+		B6E5645ACA204689F580D55D /* Pods_GHLogisticsTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GHLogisticsTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1F4A13F66FB19B3BA189BD5 /* Pods-GHLogisticsTrackTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHLogisticsTrackTests.release.xcconfig"; path = "Target Support Files/Pods-GHLogisticsTrackTests/Pods-GHLogisticsTrackTests.release.xcconfig"; sourceTree = "<group>"; };
+		F9DBC09D47E23BC277D7CEFE /* Pods_GHLogisticsTrackTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GHLogisticsTrackTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0452553A239A14970075ACC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A552432B900F16CF2BF3334A /* Pods_GHLogisticsTrack.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04525555239A149D0075ACC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6490CF64D3F02688A00D850 /* Pods_GHLogisticsTrackTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04525560239A149D0075ACC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4F086101693E61FDE35795A /* Pods_GHLogisticsTrack_GHLogisticsTrackUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04525534239A14970075ACC8 = {
+			isa = PBXGroup;
+			children = (
+				0452553F239A14970075ACC8 /* GHLogisticsTrack */,
+				0452555B239A149D0075ACC8 /* GHLogisticsTrackTests */,
+				04525566239A149D0075ACC8 /* GHLogisticsTrackUITests */,
+				0452553E239A14970075ACC8 /* Products */,
+				497766EB253E69EFE8C96D3D /* Pods */,
+				B105517E1A39AB49E8AAED1A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0452553E239A14970075ACC8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0452553D239A14970075ACC8 /* GHLogisticsTrack.app */,
+				04525558239A149D0075ACC8 /* GHLogisticsTrackTests.xctest */,
+				04525563239A149D0075ACC8 /* GHLogisticsTrackUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0452553F239A14970075ACC8 /* GHLogisticsTrack */ = {
+			isa = PBXGroup;
+			children = (
+				04E61C49243B5DB900030F65 /* Example */,
+				04525575239A14FA0075ACC8 /* GHLogisticsTrack */,
+				04525540239A14970075ACC8 /* AppDelegate.h */,
+				04525541239A14970075ACC8 /* AppDelegate.m */,
+				04525546239A14970075ACC8 /* ViewController.h */,
+				04525547239A14970075ACC8 /* ViewController.m */,
+				0491013623AF6E5B0011C514 /* NSString+GH.h */,
+				0491013723AF6E5B0011C514 /* NSString+GH.m */,
+				04E61C46243B5AF400030F65 /* UIView+Model.h */,
+				04E61C47243B5AF400030F65 /* UIView+Model.m */,
+				0491012D23AF64110011C514 /* GHNavigationController.h */,
+				0491012E23AF64110011C514 /* GHNavigationController.m */,
+				0452557F239A22570075ACC8 /* PrefixHeader.pch */,
+				0452554C239A149D0075ACC8 /* Assets.xcassets */,
+				0452554E239A149D0075ACC8 /* LaunchScreen.storyboard */,
+				04525551239A149D0075ACC8 /* Info.plist */,
+				04525552239A149D0075ACC8 /* main.m */,
+			);
+			path = GHLogisticsTrack;
+			sourceTree = "<group>";
+		};
+		0452555B239A149D0075ACC8 /* GHLogisticsTrackTests */ = {
+			isa = PBXGroup;
+			children = (
+				0452555C239A149D0075ACC8 /* GHLogisticsTrackTests.m */,
+				0452555E239A149D0075ACC8 /* Info.plist */,
+			);
+			path = GHLogisticsTrackTests;
+			sourceTree = "<group>";
+		};
+		04525566239A149D0075ACC8 /* GHLogisticsTrackUITests */ = {
+			isa = PBXGroup;
+			children = (
+				04525567239A149D0075ACC8 /* GHLogisticsTrackUITests.m */,
+				04525569239A149D0075ACC8 /* Info.plist */,
+			);
+			path = GHLogisticsTrackUITests;
+			sourceTree = "<group>";
+		};
+		04525575239A14FA0075ACC8 /* GHLogisticsTrack */ = {
+			isa = PBXGroup;
+			children = (
+				04525576239A153E0075ACC8 /* GHLogisticsTrackViewController.h */,
+				04525577239A153E0075ACC8 /* GHLogisticsTrackViewController.m */,
+				0452557C239A1C9A0075ACC8 /* GHLogisticsTrackHeader.h */,
+				0452557D239A1C9A0075ACC8 /* GHLogisticsTrackHeader.m */,
+				04525580239A46940075ACC8 /* GHLogisticsTrackCell.h */,
+				04525581239A46940075ACC8 /* GHLogisticsTrackCell.m */,
+				0491012A23AF62C70011C514 /* GHLogisticsTrackLastCell.h */,
+				0491012B23AF62C80011C514 /* GHLogisticsTrackLastCell.m */,
+				0491013023AF65EC0011C514 /* GHLogisticsTrackModel.h */,
+				0491013123AF65EC0011C514 /* GHLogisticsTrackModel.m */,
+				0491013323AF66490011C514 /* GHLogisticsTrackStatusModel.h */,
+				0491013423AF66490011C514 /* GHLogisticsTrackStatusModel.m */,
+			);
+			path = GHLogisticsTrack;
+			sourceTree = "<group>";
+		};
+		04E61C49243B5DB900030F65 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				04E61C4A243B5DF200030F65 /* GHExampleHeader.h */,
+				04E61C4B243B5DF200030F65 /* GHExampleHeader.m */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		497766EB253E69EFE8C96D3D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				17A39430FC270623A9DE4333 /* Pods-GHLogisticsTrack.debug.xcconfig */,
+				690CECA7DD1122874AB0922D /* Pods-GHLogisticsTrack.release.xcconfig */,
+				31C78719E67CFD0E0A1415BE /* Pods-GHLogisticsTrack-GHLogisticsTrackUITests.debug.xcconfig */,
+				605C79654099F8ABD9791C7A /* Pods-GHLogisticsTrack-GHLogisticsTrackUITests.release.xcconfig */,
+				68BEA8485BCC6503BA74E02B /* Pods-GHLogisticsTrackTests.debug.xcconfig */,
+				F1F4A13F66FB19B3BA189BD5 /* Pods-GHLogisticsTrackTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B105517E1A39AB49E8AAED1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B6E5645ACA204689F580D55D /* Pods_GHLogisticsTrack.framework */,
+				50ADF58F2F0EB411A844CEEC /* Pods_GHLogisticsTrack_GHLogisticsTrackUITests.framework */,
+				F9DBC09D47E23BC277D7CEFE /* Pods_GHLogisticsTrackTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0452553C239A14970075ACC8 /* GHLogisticsTrack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0452556C239A149D0075ACC8 /* Build configuration list for PBXNativeTarget "GHLogisticsTrack" */;
+			buildPhases = (
+				DD660E1A5B514B1245E7D155 /* [CP] Check Pods Manifest.lock */,
+				04525539239A14970075ACC8 /* Sources */,
+				0452553A239A14970075ACC8 /* Frameworks */,
+				0452553B239A14970075ACC8 /* Resources */,
+				CBEBCE535B7A22510FF60857 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GHLogisticsTrack;
+			productName = GHLogisticsTrack;
+			productReference = 0452553D239A14970075ACC8 /* GHLogisticsTrack.app */;
+			productType = "com.apple.product-type.application";
+		};
+		04525557239A149D0075ACC8 /* GHLogisticsTrackTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0452556F239A149D0075ACC8 /* Build configuration list for PBXNativeTarget "GHLogisticsTrackTests" */;
+			buildPhases = (
+				05C93DCC00A698EE0F43BF34 /* [CP] Check Pods Manifest.lock */,
+				04525554239A149D0075ACC8 /* Sources */,
+				04525555239A149D0075ACC8 /* Frameworks */,
+				04525556239A149D0075ACC8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0452555A239A149D0075ACC8 /* PBXTargetDependency */,
+			);
+			name = GHLogisticsTrackTests;
+			productName = GHLogisticsTrackTests;
+			productReference = 04525558239A149D0075ACC8 /* GHLogisticsTrackTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		04525562239A149D0075ACC8 /* GHLogisticsTrackUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04525572239A149D0075ACC8 /* Build configuration list for PBXNativeTarget "GHLogisticsTrackUITests" */;
+			buildPhases = (
+				7A7E2062BB8A40AED8F1E10E /* [CP] Check Pods Manifest.lock */,
+				0452555F239A149D0075ACC8 /* Sources */,
+				04525560239A149D0075ACC8 /* Frameworks */,
+				04525561239A149D0075ACC8 /* Resources */,
+				6C82551F34626437B84078D5 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04525565239A149D0075ACC8 /* PBXTargetDependency */,
+			);
+			name = GHLogisticsTrackUITests;
+			productName = GHLogisticsTrackUITests;
+			productReference = 04525563239A149D0075ACC8 /* GHLogisticsTrackUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04525535239A14970075ACC8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = GHome;
+				TargetAttributes = {
+					0452553C239A14970075ACC8 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					04525557239A149D0075ACC8 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 0452553C239A14970075ACC8;
+					};
+					04525562239A149D0075ACC8 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 0452553C239A14970075ACC8;
+					};
+				};
+			};
+			buildConfigurationList = 04525538239A14970075ACC8 /* Build configuration list for PBXProject "GHLogisticsTrack" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04525534239A14970075ACC8;
+			productRefGroup = 0452553E239A14970075ACC8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0452553C239A14970075ACC8 /* GHLogisticsTrack */,
+				04525557239A149D0075ACC8 /* GHLogisticsTrackTests */,
+				04525562239A149D0075ACC8 /* GHLogisticsTrackUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0452553B239A14970075ACC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04525550239A149D0075ACC8 /* LaunchScreen.storyboard in Resources */,
+				0452554D239A149D0075ACC8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04525556239A149D0075ACC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04525561239A149D0075ACC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		05C93DCC00A698EE0F43BF34 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GHLogisticsTrackTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C82551F34626437B84078D5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GHLogisticsTrack-GHLogisticsTrackUITests/Pods-GHLogisticsTrack-GHLogisticsTrackUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GHLogisticsTrack-GHLogisticsTrackUITests/Pods-GHLogisticsTrack-GHLogisticsTrackUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GHLogisticsTrack-GHLogisticsTrackUITests/Pods-GHLogisticsTrack-GHLogisticsTrackUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A7E2062BB8A40AED8F1E10E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GHLogisticsTrack-GHLogisticsTrackUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBEBCE535B7A22510FF60857 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GHLogisticsTrack/Pods-GHLogisticsTrack-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GHLogisticsTrack/Pods-GHLogisticsTrack-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GHLogisticsTrack/Pods-GHLogisticsTrack-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD660E1A5B514B1245E7D155 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GHLogisticsTrack-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04525539239A14970075ACC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0491012F23AF64110011C514 /* GHNavigationController.m in Sources */,
+				04525548239A14970075ACC8 /* ViewController.m in Sources */,
+				0491013823AF6E5B0011C514 /* NSString+GH.m in Sources */,
+				04525542239A14970075ACC8 /* AppDelegate.m in Sources */,
+				0491013223AF65EC0011C514 /* GHLogisticsTrackModel.m in Sources */,
+				04525578239A153E0075ACC8 /* GHLogisticsTrackViewController.m in Sources */,
+				04E61C48243B5AF400030F65 /* UIView+Model.m in Sources */,
+				04E61C4C243B5DF200030F65 /* GHExampleHeader.m in Sources */,
+				04525553239A149D0075ACC8 /* main.m in Sources */,
+				0491013523AF66490011C514 /* GHLogisticsTrackStatusModel.m in Sources */,
+				0452557E239A1C9A0075ACC8 /* GHLogisticsTrackHeader.m in Sources */,
+				0491012C23AF62C80011C514 /* GHLogisticsTrackLastCell.m in Sources */,
+				04525582239A46940075ACC8 /* GHLogisticsTrackCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04525554239A149D0075ACC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0452555D239A149D0075ACC8 /* GHLogisticsTrackTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0452555F239A149D0075ACC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04525568239A149D0075ACC8 /* GHLogisticsTrackUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0452555A239A149D0075ACC8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0452553C239A14970075ACC8 /* GHLogisticsTrack */;
+			targetProxy = 04525559239A149D0075ACC8 /* PBXContainerItemProxy */;
+		};
+		04525565239A149D0075ACC8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0452553C239A14970075ACC8 /* GHLogisticsTrack */;
+			targetProxy = 04525564239A149D0075ACC8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0452554E239A149D0075ACC8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0452554F239A149D0075ACC8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0452556A239A149D0075ACC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0452556B239A149D0075ACC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0452556D239A149D0075ACC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17A39430FC270623A9DE4333 /* Pods-GHLogisticsTrack.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KZ9JB9ZT4S;
+				GCC_PREFIX_HEADER = GHLogisticsTrack/PrefixHeader.pch;
+				INFOPLIST_FILE = GHLogisticsTrack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = GHome.GHLogisticsTrack;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		0452556E239A149D0075ACC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 690CECA7DD1122874AB0922D /* Pods-GHLogisticsTrack.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KZ9JB9ZT4S;
+				GCC_PREFIX_HEADER = GHLogisticsTrack/PrefixHeader.pch;
+				INFOPLIST_FILE = GHLogisticsTrack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = GHome.GHLogisticsTrack;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		04525570239A149D0075ACC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68BEA8485BCC6503BA74E02B /* Pods-GHLogisticsTrackTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GHLogisticsTrackTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = GHome.GHLogisticsTrackTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GHLogisticsTrack.app/GHLogisticsTrack";
+			};
+			name = Debug;
+		};
+		04525571239A149D0075ACC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1F4A13F66FB19B3BA189BD5 /* Pods-GHLogisticsTrackTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GHLogisticsTrackTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = GHome.GHLogisticsTrackTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GHLogisticsTrack.app/GHLogisticsTrack";
+			};
+			name = Release;
+		};
+		04525573239A149D0075ACC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31C78719E67CFD0E0A1415BE /* Pods-GHLogisticsTrack-GHLogisticsTrackUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GHLogisticsTrackUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = GHome.GHLogisticsTrackUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GHLogisticsTrack;
+			};
+			name = Debug;
+		};
+		04525574239A149D0075ACC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 605C79654099F8ABD9791C7A /* Pods-GHLogisticsTrack-GHLogisticsTrackUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = GHLogisticsTrackUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = GHome.GHLogisticsTrackUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GHLogisticsTrack;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04525538239A14970075ACC8 /* Build configuration list for PBXProject "GHLogisticsTrack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0452556A239A149D0075ACC8 /* Debug */,
+				0452556B239A149D0075ACC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0452556C239A149D0075ACC8 /* Build configuration list for PBXNativeTarget "GHLogisticsTrack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0452556D239A149D0075ACC8 /* Debug */,
+				0452556E239A149D0075ACC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0452556F239A149D0075ACC8 /* Build configuration list for PBXNativeTarget "GHLogisticsTrackTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04525570239A149D0075ACC8 /* Debug */,
+				04525571239A149D0075ACC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04525572239A149D0075ACC8 /* Build configuration list for PBXNativeTarget "GHLogisticsTrackUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04525573239A149D0075ACC8 /* Debug */,
+				04525574239A149D0075ACC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04525535239A14970075ACC8 /* Project object */;
+}
