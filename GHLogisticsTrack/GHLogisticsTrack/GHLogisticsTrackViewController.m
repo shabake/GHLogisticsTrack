@@ -41,7 +41,9 @@
 
 - (void)setupUI {
     [self.view addSubview:self.tableView];
-    self.tableView.tableHeaderView = self.header;
+    if (self.header) {
+        self.tableView.tableHeaderView = self.header;
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {

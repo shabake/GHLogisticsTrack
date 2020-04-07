@@ -109,7 +109,11 @@
 }
 
 - (UIView *)logisticsTrackViewController:(GHLogisticsTrackViewController *)logisticsTrackViewController viewForHeader:(UIView *)header {
-    return self.header;
+    if (self.indexPath.row == 0) {
+        return self.header;
+    } else {
+        return nil;
+    }
 }
 
 - (void)callWithNumber:(NSString *)number {
