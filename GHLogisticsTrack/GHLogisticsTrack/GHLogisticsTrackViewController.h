@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 typedef void (^LogisticsTrackGetDataBlock)(GHLogisticsTrackModel *model);
-typedef void (^LogisticsTrackReloadDataBlock)(UITableView *tableView);
+typedef void (^LogisticsTrackReloadDataBlock)(void);
 
 @interface GHLogisticsTrackViewController : UIViewController
 

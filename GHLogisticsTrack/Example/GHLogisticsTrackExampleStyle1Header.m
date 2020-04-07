@@ -1,26 +1,22 @@
 //
-//  GHExampleHeader.m
+//  GHLogisticsTrackHeader.m
 //  GHLogisticsTrack
 //
-//  Created by mac on 2020/4/6.
-//  Copyright © 2020 GHome. All rights reserved.
+//  Created by mac on 2019/12/6.
+//  Copyright © 2019 GHome. All rights reserved.
 //
 
-#import "GHExampleHeader.h"
+#import "GHLogisticsTrackExampleStyle1Header.h"
 #import "UIImageView+WebCache.h"
 #import "GHLogisticsTrackModel.h"
-
-@interface GHExampleHeader()
-
+@interface GHLogisticsTrackExampleStyle1Header()
 @property (nonatomic , strong) UILabel *trackingNumber;
 @property (nonatomic , strong) UILabel *company;
 @property (nonatomic , strong) UILabel *status;
 @property (nonatomic , strong) UILabel *copy;
 @property (nonatomic , strong) UIImageView *logo;
-
 @end
-
-@implementation GHExampleHeader
+@implementation GHLogisticsTrackExampleStyle1Header
 
 - (void)setLogisticsTrackModel:(GHLogisticsTrackModel *)logisticsTrackModel {
     self.trackingNumber.text = [NSString stringWithFormat:@"配送单号:%@",logisticsTrackModel.number.length ? logisticsTrackModel.number:@""];

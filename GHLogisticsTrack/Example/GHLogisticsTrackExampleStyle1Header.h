@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class GHLogisticsTrackModel;
 
-@interface GHLogisticsTrackHeader : UIView
+@interface GHLogisticsTrackExampleStyle1Header : UIView
 
 @property (nonatomic , strong) GHLogisticsTrackModel *logisticsTrackModel;
 

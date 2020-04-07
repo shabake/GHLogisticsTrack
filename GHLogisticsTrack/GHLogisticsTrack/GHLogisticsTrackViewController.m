@@ -7,17 +7,11 @@
 //
 
 #import "GHLogisticsTrackViewController.h"
-#import "GHLogisticsTrackHeader.h"
-#import "GHLogisticsTrackCell.h"
-#import "GHLogisticsTrackLastCell.h"
-#import "GHLogisticsTrackModel.h"
-#import "GHLogisticsTrackStatusModel.h"
 
 @interface GHLogisticsTrackViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic , strong) UITableView *tableView;
 @property (nonatomic , strong) UIView *header;
-@property (nonatomic , strong) GHLogisticsTrackModel *logisticsTrackModel;
 
 @end
 
@@ -30,7 +24,7 @@
 
 - (void)reloadData {
     if (self.reloadDataBlock) {
-        self.reloadDataBlock(self.tableView);
+        self.reloadDataBlock();
     }
 }
 
@@ -39,6 +33,7 @@
     self.navigationItem.title = @"物流轨迹";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"刷新" style:UIBarButtonItemStylePlain target:self action:@selector(reloadData)];
     [self setupUI];
+    [self reloadData];
 }
 
 - (void)setupUI {
@@ -85,15 +80,6 @@
     return [UITableViewCell new];
 }
 
-- (void)callWithNumber:(NSString *)number {
-    NSString *callPhone = [NSString stringWithFormat:@"telprompt://%@",number];
-    if (@available(iOS 10.0, *)) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone] options:@{} completionHandler:nil];
-    } else {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callPhone]];
-    }
-}
-
 - (UITableView *)tableView {
     if (_tableView == nil) {
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
@@ -102,17 +88,8 @@
         _tableView.tableFooterView = [UIView new];
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        [_tableView registerClass:[GHLogisticsTrackCell class] forCellReuseIdentifier:@"GHLogisticsTrackCellID"];
-        [_tableView registerClass:[GHLogisticsTrackLastCell class] forCellReuseIdentifier:@"GHLogisticsTrackLastCellID"];
     }
     return _tableView;
-}
-
-- (GHLogisticsTrackModel *)logisticsTrackModel {
-    if (_logisticsTrackModel == nil) {
-        _logisticsTrackModel = [[GHLogisticsTrackModel alloc]init];
-    }
-    return _logisticsTrackModel;
 }
 
 - (UIView *)header {

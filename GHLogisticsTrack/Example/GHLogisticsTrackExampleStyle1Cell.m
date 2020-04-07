@@ -1,26 +1,26 @@
 //
-//  GHLogisticsTrackLastCell.m
+//  GHLogisticsTrackCell.m
 //  GHLogisticsTrack
 //
-//  Created by mac on 2019/12/22.
+//  Created by mac on 2019/12/6.
 //  Copyright © 2019 GHome. All rights reserved.
 //
 
-#import "GHLogisticsTrackLastCell.h"
+#import "GHLogisticsTrackExampleStyle1Cell.h"
 #import "GHLogisticsTrackModel.h"
 #import "GHLogisticsTrackStatusModel.h"
 #import "NSString+GH.h"
 
-@interface GHLogisticsTrackLastCell()<UITextViewDelegate>
+@interface GHLogisticsTrackExampleStyle1Cell()<UITextViewDelegate>
 
 @property (nonatomic , strong) UITextView *info;
 @property (nonatomic , strong) UILabel *date;
-@property (nonatomic , strong) UILabel *status;
 @property (nonatomic , strong) UIView *line;
 @property (nonatomic , strong) UIImageView *icon;
 
 @end
-@implementation GHLogisticsTrackLastCell
+
+@implementation GHLogisticsTrackExampleStyle1Cell
 
 - (void)setLogisticsTrackModel:(GHLogisticsTrackModel *)logisticsTrackModel {
     _logisticsTrackModel = logisticsTrackModel;
@@ -29,8 +29,6 @@
     } else {
         self.line.hidden = NO;
     }
-    self.icon.image = [UIImage imageNamed:logisticsTrackModel.imageName];
-    self.status.text = logisticsTrackModel.deliverystatusStr;
 }
 
 - (void)setLogisticsTrackStatusModel:(GHLogisticsTrackStatusModel *)logisticsTrackStatusModel {
@@ -63,9 +61,10 @@
 }
 
 + (CGFloat)cellHeightWithContent:(GHLogisticsTrackModel *)logisticsTrackModel logisticsTrackStatusModel:(GHLogisticsTrackStatusModel *)statusModel {
-    CGSize infoSize = [NSString sizeWithText:statusModel.status andFont:[UIFont systemFontOfSize:12] andMaxSize:CGSizeMake(kScreenWidth - 64, MAXFLOAT)];
-    return 20 + 16 + 5 + infoSize.height+ 5 +16 + 14;
+    CGSize infoSize = [NSString sizeWithText:statusModel.status andFont:[UIFont systemFontOfSize:12] andMaxSize:CGSizeMake(kScreenWidth - 74, MAXFLOAT)];
+    return infoSize.height + 5 + 16 + 14;
 }
+
 
 - (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction  API_AVAILABLE(ios(10.0)){
     NSString *str = [self.logisticsTrackStatusModel.status substringWithRange:characterRange];
@@ -74,7 +73,6 @@
     }
     return NO;
 }
-
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self == [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -86,7 +84,6 @@
 }
 
 - (void)setupUI {
-    [self.contentView addSubview:self.status];
     [self.contentView addSubview:self.info];
     [self.contentView addSubview:self.date];
     [self.contentView addSubview:self.icon];
@@ -97,9 +94,9 @@
     [super layoutSubviews];
     
     [self.icon mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView).offset(20);
-        make.width.height.equalTo(@(16));
-        make.left.equalTo(self.contentView).offset(20);
+        make.top.equalTo(self.contentView);
+        make.width.height.equalTo(@(8));
+        make.left.equalTo(self.contentView).offset(24);
     }];
     
     [self.line mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -109,36 +106,20 @@
         make.bottom.equalTo(self.contentView).offset(-8);
     }];
     
-    [self.status mas_remakeConstraints:^(MASConstraintMaker *make) {
+    CGSize infoSize = [self.info sizeThatFits:CGSizeMake(kScreenWidth - 64, MAXFLOAT)];
+    [self.info mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.icon);
         make.left.equalTo(self.icon.mas_right).offset(12);
-        make.right.equalTo(self.contentView).offset(-20);
-        make.height.equalTo(@16);
-    }];
-    
-    CGSize infoSize = [NSString sizeWithText:self.logisticsTrackStatusModel.status andFont:[UIFont systemFontOfSize:12] andMaxSize:CGSizeMake(kScreenWidth - 64, MAXFLOAT)];
-    [self.info mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.status.mas_bottom).offset(5);
-        make.left.equalTo(self.icon.mas_right).offset(6);
         make.right.equalTo(self.contentView).offset(-20);
         make.height.equalTo(@(infoSize.height));
     }];
     
     [self.date mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.info.mas_bottom).offset(5);
-        make.left.equalTo(self.status);
+        make.left.equalTo(self.info).offset(5);
         make.right.equalTo(self.info);
         make.height.equalTo(@16);
     }];
-}
-
-- (UILabel *)status {
-    if (_status == nil) {
-        _status = [[UILabel alloc]init];
-        _status.font = [UIFont systemFontOfSize:12 weight:1];
-        _status.textColor = UIColorFromRGB(0x333333);
-    }
-    return _status;
 }
 
 - (UIView *)line {
@@ -153,8 +134,8 @@
     if (_info == nil) {
         _info = [[UITextView alloc]init];
         _info.font = [UIFont systemFontOfSize:12];
-        _info.editable = NO;
         _info.textColor = UIColorFromRGB(0x666666);
+        _info.editable = NO;
         _info.scrollEnabled = NO;
         _info.delegate = self;
         _info.textContainerInset = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -174,10 +155,12 @@
 - (UIImageView *)icon {
     if (_icon == nil) {
         _icon = [[UIImageView alloc]init];
+        _icon.backgroundColor = UIColorFromRGB(0xDCDEE3);
         _icon.layer.masksToBounds = YES;
-        _icon.layer.cornerRadius = 8;
+        _icon.layer.cornerRadius = 4;
     }
     return _icon;
 }
+
 
 @end
