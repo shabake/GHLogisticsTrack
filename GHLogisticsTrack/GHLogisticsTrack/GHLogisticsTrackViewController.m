@@ -17,6 +17,10 @@
 
 @implementation GHLogisticsTrackViewController
 
+- (void)setNavTitle:(NSString *)navTitle {
+    self.navigationItem.title = navTitle;
+}
+
 - (void)setDelegate:(id<GHLogisticsTrackViewDelagte>)delegate {
     _delegate = delegate;
     [self.tableView reloadData];
@@ -30,7 +34,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"物流轨迹";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"刷新" style:UIBarButtonItemStylePlain target:self action:@selector(reloadData)];
     [self setupUI];
     [self reloadData];

@@ -18,7 +18,7 @@
 @property (nonatomic , strong) GHLogisticsTrackModel *logisticsTrackModel;
 @property (nonatomic , strong) GHLogisticsTrackViewController *vc;
 @property (nonatomic , strong) GHLogisticsTrackExampleStyle1Header *header;
-
+@property (nonatomic , strong) NSIndexPath *indexPath;
 @property (nonatomic , strong) UITableView *tableView;
 @end
 
@@ -63,7 +63,6 @@
     }];
 }
 
-
 - (NSInteger)numberOfSectionsInLogisticsTrackView:(GHLogisticsTrackViewController *)logisticsTrackView tableView:(UITableView *)tableView {
     return self.logisticsTrackModel.list.count;
 }
@@ -73,17 +72,25 @@
 }
 
 - (UITableViewCell *)itemOfLogisticsTrackView:(GHLogisticsTrackViewController *)logisticsTrackView tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+    
     GHLogisticsTrackStatusModel *logisticsTrackStatusModel = self.logisticsTrackModel.list[indexPath.section];
     [tableView registerClass:[GHLogisticsTrackExampleStyle1Cell class] forCellReuseIdentifier:@"GHLogisticsTrackExampleStyle1CellID"];
     [tableView registerClass:[GHLogisticsTrackExampleStyle1LastCell class] forCellReuseIdentifier:@"GHLogisticsTrackExampleStyle1LastCellID"];
-    if (indexPath.section == 0) {
-        GHLogisticsTrackExampleStyle1LastCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1LastCellID"];
+    if (self.indexPath.row == 0) {
+        if (indexPath.section == 0) {
+            GHLogisticsTrackExampleStyle1LastCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1LastCellID"];
+            cell.indexPath = indexPath;
+            cell.logisticsTrackModel = self.logisticsTrackModel;
+            cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
+            return cell;
+        }
+        GHLogisticsTrackExampleStyle1Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1CellID"];
         cell.indexPath = indexPath;
         cell.logisticsTrackModel = self.logisticsTrackModel;
         cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
         return cell;
     }
-    GHLogisticsTrackExampleStyle1Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1CellID"];
+    GHLogisticsTrackExampleStyle1LastCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1LastCellID"];
     cell.indexPath = indexPath;
     cell.logisticsTrackModel = self.logisticsTrackModel;
     cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
@@ -91,11 +98,14 @@
 }
 
 - (CGFloat)logisticsTrackView:(GHLogisticsTrackViewController *)logisticsTrackView tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        return [GHLogisticsTrackExampleStyle1LastCell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
-    } else {
-        return [GHLogisticsTrackExampleStyle1Cell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
+    if (self.indexPath.row == 0) {
+        if (indexPath.section == 0) {
+            return [GHLogisticsTrackExampleStyle1LastCell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
+        } else {
+            return [GHLogisticsTrackExampleStyle1Cell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
+        }
     }
+    return [GHLogisticsTrackExampleStyle1LastCell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
 }
 
 - (UIView *)logisticsTrackViewController:(GHLogisticsTrackViewController *)logisticsTrackViewController viewForHeader:(UIView *)header {
@@ -127,18 +137,21 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.indexPath = indexPath;
+ 
+    GHLogisticsTrackViewController *vc = [[GHLogisticsTrackViewController alloc]init];
     if (indexPath.row == 0) {
-        GHLogisticsTrackViewController *vc = [[GHLogisticsTrackViewController alloc]init];
-        vc.delegate = self;
-        self.vc = vc;
-        weakself(self);
-        vc.reloadDataBlock = ^{
-            [weakSelf getData];
-        };
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if (indexPath.row == 1) {
-        
+        vc.navTitle = @"样式1";
+    } else {
+        vc.navTitle = @"样式2";
     }
+    vc.delegate = self;
+    self.vc = vc;
+    weakself(self);
+    vc.reloadDataBlock = ^{
+        [weakSelf getData];
+    };
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (UITableView *)tableView {

@@ -42,6 +42,8 @@ typedef void (^LogisticsTrackReloadDataBlock)(void);
 
 @property (nonatomic , weak) id <GHLogisticsTrackViewDelagte> delegate;
 
+@property (nonatomic , copy) NSString *navTitle;;
+
 @end
 
 NS_ASSUME_NONNULL_END
