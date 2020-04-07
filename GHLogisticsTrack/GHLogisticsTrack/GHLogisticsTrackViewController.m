@@ -25,50 +25,13 @@
 
 - (void)setDelegate:(id<GHLogisticsTrackViewDelagte>)delegate {
     _delegate = delegate;
-}
-
-- (void)getData {
-    weakself(self);
-    NSString *strUrl = [NSString stringWithFormat:@"http://mock-api.com/7zxXywz3.mock/logisticsTrack"];
-    // 对汉字进行转义
-    strUrl = [strUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    NSURL *url = [NSURL URLWithString:strUrl];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:
-     ^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
-        if (connectionError) {
-            return;
-        }
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-        if (httpResponse.statusCode == 200 || httpResponse.statusCode == 304) {
-            
-            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-            NSDictionary *data = dict[@"data"];
-            NSDictionary *result = data[@"result"];
-            NSArray *list = result[@"list"];
-            NSMutableArray *listArray = [NSMutableArray array];
-            for (NSDictionary *listDict in list) {
-                GHLogisticsTrackStatusModel *logisticsTrackStatusModel = [GHLogisticsTrackStatusModel mj_objectWithKeyValues:listDict];
-                [listArray addObject:logisticsTrackStatusModel];
-            }
-            GHLogisticsTrackModel *logisticsTrackModel = [GHLogisticsTrackModel mj_objectWithKeyValues:result];
-            logisticsTrackModel.list = listArray.copy;
-            if (weakSelf.getDataBlock) {
-                weakSelf.getDataBlock(logisticsTrackModel);
-            }
-            weakSelf.logisticsTrackModel = logisticsTrackModel;
-            [weakSelf.tableView reloadData];
-        } else {
-            NSLog(@"服务器内部错误");
-        }
-    }];
+    [self.tableView reloadData];
 }
 
 - (void)reloadData {
     if (self.reloadDataBlock) {
         self.reloadDataBlock(self.tableView);
     }
-    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad {
@@ -76,7 +39,6 @@
     self.navigationItem.title = @"物流轨迹";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"刷新" style:UIBarButtonItemStylePlain target:self action:@selector(reloadData)];
     [self setupUI];
-    [self getData];
 }
 
 - (void)setupUI {

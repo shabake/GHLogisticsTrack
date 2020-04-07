@@ -18,7 +18,7 @@
 
 @property (nonatomic , strong) GHExampleHeader *header;
 @property (nonatomic , strong) GHLogisticsTrackModel *logisticsTrackModel;
-
+@property (nonatomic , strong) GHLogisticsTrackViewController *vc;
 @end
 
 @implementation ViewController
@@ -55,14 +55,18 @@
             GHLogisticsTrackModel *logisticsTrackModel = [GHLogisticsTrackModel mj_objectWithKeyValues:result];
             logisticsTrackModel.list = listArray.copy;
             weakSelf.logisticsTrackModel = logisticsTrackModel;
+            weakSelf.header.logisticsTrackModel = self.logisticsTrackModel;
+            weakSelf.vc.delegate = weakSelf;
         } else {
             NSLog(@"服务器内部错误");
         }
     }];
 }
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     GHLogisticsTrackViewController *vc = [[GHLogisticsTrackViewController alloc]init];
     vc.delegate = self;
+    self.vc = vc;
     weakself(self);
     vc.reloadDataBlock = ^(UITableView * _Nonnull tableView) {
         [weakSelf getData];
@@ -80,19 +84,19 @@
 
 - (UITableViewCell *)itemOfLogisticsTrackView:(GHLogisticsTrackViewController *)logisticsTrackView tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
     GHLogisticsTrackStatusModel *logisticsTrackStatusModel = self.logisticsTrackModel.list[indexPath.section];
-
+    
     if (indexPath.section == 0) {
-           GHLogisticsTrackLastCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackLastCellID"];
-         cell.indexPath = indexPath;
-         cell.logisticsTrackModel = self.logisticsTrackModel;
-         cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
-         return cell;
+        GHLogisticsTrackLastCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackLastCellID"];
+        cell.indexPath = indexPath;
+        cell.logisticsTrackModel = self.logisticsTrackModel;
+        cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
+        return cell;
     }
     GHLogisticsTrackCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackCellID"];
-     cell.indexPath = indexPath;
-     cell.logisticsTrackModel = self.logisticsTrackModel;
-     cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
-     return cell;
+    cell.indexPath = indexPath;
+    cell.logisticsTrackModel = self.logisticsTrackModel;
+    cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
+    return cell;
 }
 
 - (CGFloat)logisticsTrackView:(GHLogisticsTrackViewController *)logisticsTrackView tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -104,7 +108,6 @@
 }
 
 - (UIView *)logisticsTrackViewController:(GHLogisticsTrackViewController *)logisticsTrackViewController viewForHeader:(UIView *)header {
-    self.header.logisticsTrackModel = self.logisticsTrackModel;
     return self.header;
 }
 
@@ -121,4 +124,5 @@
     }
     return _logisticsTrackModel;
 }
+
 @end
