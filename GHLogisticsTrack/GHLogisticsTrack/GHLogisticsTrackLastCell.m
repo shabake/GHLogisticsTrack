@@ -22,7 +22,7 @@
 
 - (void)setImageName:(NSString *)imageName {
     _imageName = imageName;
-    self.icon.image = [UIImage imageNamed:imageName.length ? imageName:@"logistics_delivery"];
+    self.icon.image = [UIImage imageNamed:imageName.length ? imageName:@"logistics_processing"];
 }
 
 - (void)setDeliveryStatus:(NSString *)deliveryStatus {

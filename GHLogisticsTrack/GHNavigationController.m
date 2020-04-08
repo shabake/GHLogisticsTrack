@@ -29,7 +29,7 @@
     if (self.viewControllers.count > 0) {
         viewController.hidesBottomBarWhenPushed = YES;
         UIButton *back = [[UIButton alloc]init];
-        [back setTitle:@"back" forState:UIControlStateNormal];
+        [back setTitle:@"返回" forState:UIControlStateNormal];
         [back setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:back];
         [back addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];
