@@ -64,6 +64,14 @@ typedef void (^LogisticsTrackReloadDataBlock)(void);
  */
 @property (nonatomic , copy) NSString *url;
 
+@property (nonatomic , copy) NSString *deliverystatusStr;
+
+@property (nonatomic , strong) NSArray *statuss;
+
+@property (nonatomic , strong) NSArray *times;
+
+@property (nonatomic , copy) NSString *imageName;
+
 @end
 
 NS_ASSUME_NONNULL_END

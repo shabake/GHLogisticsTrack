@@ -14,10 +14,10 @@
             filePath = "GHLogisticsTrack/GHLogisticsTrack/GHLogisticsTrackLastCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "-setLogisticsTrackModel:"
-            landmarkType = "7">
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "GHLogisticsTrackLastCell"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -42,8 +42,8 @@
             filePath = "GHLogisticsTrack/GHLogisticsTrack/GHLogisticsTrackViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "-setDelegate:"
             landmarkType = "7">
          </BreakpointContent>

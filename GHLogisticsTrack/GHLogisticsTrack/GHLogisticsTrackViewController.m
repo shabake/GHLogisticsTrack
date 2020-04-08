@@ -8,6 +8,8 @@
 
 #import "GHLogisticsTrackViewController.h"
 #import "GHLogisticsTrackHeaderView.h"
+#import "GHLogisticsTrackLastCell.h"
+#import "GHLogisticsTrackStyleCell.h"
 
 @interface GHLogisticsTrackViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -49,7 +51,6 @@
         self.headerView.number = self.number;
         self.headerView.courierCompany = self.courierCompany;
         self.headerView.deliveryStatus = self.deliveryStatus;
-//        self.headerView.url = self.url;
         self.tableView.tableHeaderView = self.headerView;
     }
 }
@@ -70,25 +71,65 @@
     }
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.delegate numberOfSectionsInLogisticsTrackView:self tableView:tableView];
-}
-
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     return nil;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(numberOfSectionsInLogisticsTrackView:tableView:)]) {
+        return [self.delegate numberOfSectionsInLogisticsTrackView:self tableView:tableView];
+    } else {
+        return 1;
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.delegate logisticsTrackView:self tableView:tableView numberOfRowsInSection:section];
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(logisticsTrackView:tableView:numberOfRowsInSection:)]) {
+        return [self.delegate logisticsTrackView:self tableView:tableView numberOfRowsInSection:section];
+    }
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.delegate logisticsTrackView:self tableView:tableView heightForRowAtIndexPath:indexPath];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(logisticsTrackView:tableView:heightForRowAtIndexPath:)]) {
+        return [self.delegate logisticsTrackView:self tableView:tableView heightForRowAtIndexPath:indexPath];
+    } else {
+        NSString *status = self.statuss[indexPath.section];
+
+        if (indexPath.section == 0) {
+            return [GHLogisticsTrackLastCell cellHeightWithContent:status];
+        } else {
+            return [GHLogisticsTrackStyleCell cellHeightWithContent:status];
+        }
+        return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.delegate && [self.delegate respondsToSelector:@selector(itemOfLogisticsTrackView:tableView:indexPath:)]) {
         return [self.delegate itemOfLogisticsTrackView:self tableView:tableView indexPath:indexPath];
+    } else {
+        NSString *status = self.statuss[indexPath.section];
+        NSString *times = self.times[indexPath.section];
+        if (indexPath.section == 0) {
+            GHLogisticsTrackLastCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackLastCellID"];
+            cell.deliveryStatus = self.deliveryStatus;
+            cell.statusStr = status;
+            cell.time = times;
+            cell.imageName = self.imageName;
+            return cell;
+        } else {
+            GHLogisticsTrackStyleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackStyleCellID"];
+            cell.statusStr = status;
+            cell.time = times;
+            if (indexPath.section == self.times.count - 1) {
+                cell.isLast = YES;
+            } else {
+                cell.isLast = NO;
+            }
+            return cell;
+        }
     }
     return [UITableViewCell new];
 }
@@ -101,6 +142,8 @@
         _tableView.tableFooterView = [UIView new];
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [_tableView registerClass:[GHLogisticsTrackLastCell class] forCellReuseIdentifier:@"GHLogisticsTrackLastCellID"];
+        [_tableView registerClass:[GHLogisticsTrackStyleCell class] forCellReuseIdentifier:@"GHLogisticsTrackStyleCellID"];
     }
     return _tableView;
 }

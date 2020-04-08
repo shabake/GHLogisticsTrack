@@ -71,50 +71,50 @@
     return 1;
 }
 
-- (UITableViewCell *)itemOfLogisticsTrackView:(GHLogisticsTrackViewController *)logisticsTrackView tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
-    GHLogisticsTrackStatusModel *logisticsTrackStatusModel = self.logisticsTrackModel.list[indexPath.section];
-    [tableView registerClass:[GHLogisticsTrackExampleStyle1Cell class] forCellReuseIdentifier:@"GHLogisticsTrackExampleStyle1CellID"];
-    [tableView registerClass:[GHLogisticsTrackExampleStyle1LastCell class] forCellReuseIdentifier:@"GHLogisticsTrackExampleStyle1LastCellID"];
-    if (self.indexPath.row == 0) {
-        if (indexPath.section == 0) {
-            GHLogisticsTrackExampleStyle1LastCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1LastCellID"];
-            cell.indexPath = indexPath;
-            cell.didClickPhoneNumberBlock = ^(NSString * _Nonnull number) {
-                NSLog(@"number:%@",number);
-            };
-            cell.logisticsTrackModel = self.logisticsTrackModel;
-            cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
-            return cell;
-        }
-        GHLogisticsTrackExampleStyle1Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1CellID"];
-        cell.didClickPhoneNumberBlock = ^(NSString * _Nonnull number) {
-            NSLog(@"number:%@",number);
-        };
-        cell.indexPath = indexPath;
-        cell.logisticsTrackModel = self.logisticsTrackModel;
-        cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
-        return cell;
-    }
-    GHLogisticsTrackExampleStyle1LastCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1LastCellID"];
-    cell.indexPath = indexPath;
-    cell.logisticsTrackModel = self.logisticsTrackModel;
-    cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
-    cell.didClickPhoneNumberBlock = ^(NSString * _Nonnull number) {
-        NSLog(@"number:%@",number);
-    };
-    return cell;
-}
+//- (UITableViewCell *)itemOfLogisticsTrackView:(GHLogisticsTrackViewController *)logisticsTrackView tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+//    GHLogisticsTrackStatusModel *logisticsTrackStatusModel = self.logisticsTrackModel.list[indexPath.section];
+//    [tableView registerClass:[GHLogisticsTrackExampleStyle1Cell class] forCellReuseIdentifier:@"GHLogisticsTrackExampleStyle1CellID"];
+//    [tableView registerClass:[GHLogisticsTrackExampleStyle1LastCell class] forCellReuseIdentifier:@"GHLogisticsTrackExampleStyle1LastCellID"];
+//    if (self.indexPath.row == 0) {
+//        if (indexPath.section == 0) {
+//            GHLogisticsTrackExampleStyle1LastCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1LastCellID"];
+//            cell.indexPath = indexPath;
+//            cell.didClickPhoneNumberBlock = ^(NSString * _Nonnull number) {
+//                NSLog(@"number:%@",number);
+//            };
+//            cell.logisticsTrackModel = self.logisticsTrackModel;
+//            cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
+//            return cell;
+//        }
+//        GHLogisticsTrackExampleStyle1Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1CellID"];
+//        cell.didClickPhoneNumberBlock = ^(NSString * _Nonnull number) {
+//            NSLog(@"number:%@",number);
+//        };
+//        cell.indexPath = indexPath;
+//        cell.logisticsTrackModel = self.logisticsTrackModel;
+//        cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
+//        return cell;
+//    }
+//    GHLogisticsTrackExampleStyle1LastCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1LastCellID"];
+//    cell.indexPath = indexPath;
+//    cell.logisticsTrackModel = self.logisticsTrackModel;
+//    cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
+//    cell.didClickPhoneNumberBlock = ^(NSString * _Nonnull number) {
+//        NSLog(@"number:%@",number);
+//    };
+//    return cell;
+//}
 
-- (CGFloat)logisticsTrackView:(GHLogisticsTrackViewController *)logisticsTrackView tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.indexPath.row == 0) {
-        if (indexPath.section == 0) {
-            return [GHLogisticsTrackExampleStyle1LastCell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
-        } else {
-            return [GHLogisticsTrackExampleStyle1Cell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
-        }
-    }
-    return [GHLogisticsTrackExampleStyle1LastCell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
-}
+//- (CGFloat)logisticsTrackView:(GHLogisticsTrackViewController *)logisticsTrackView tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (self.indexPath.row == 0) {
+//        if (indexPath.section == 0) {
+//            return [GHLogisticsTrackExampleStyle1LastCell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
+//        } else {
+//            return [GHLogisticsTrackExampleStyle1Cell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
+//        }
+//    }
+//    return [GHLogisticsTrackExampleStyle1LastCell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
+//}
 
 //- (UIView *)headerForLogisticsTrackViewController:(GHLogisticsTrackViewController *)logisticsTrackViewController {
 //    if (self.indexPath.row == 0) {
@@ -152,7 +152,14 @@
     vc.number = @"8430110";
     vc.courierCompany = @"顺丰";
     vc.deliveryStatus = @"正在配送";
+    vc.times = @[@"2018-20-20 20:20:20",@"2020-20-20 20:20:20",@"2040-40-40 40:240:40"];
+    vc.statuss = @[@"【北京转运中心】 已发出 下一站 【北京市石景山区首钢分公司公司】",
+    @"【那警方转运中心】 已发出 下一1站 【北京市石景山区首钢分公司公司】",
+                   @"【河北】 已发出 下一1站 【北京市石景山区首钢分公司公司】"];
+
     vc.url = @"http://img5.imgtn.bdimg.com/it/u=1785605861,1850750886&fm=26&gp=0.jpg";
+    vc.imageName =  @"logistics_delivery";
+    
     self.vc = vc;
     weakself(self);
     vc.reloadDataBlock = ^{
