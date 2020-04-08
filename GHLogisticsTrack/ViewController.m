@@ -116,13 +116,13 @@
     return [GHLogisticsTrackExampleStyle1LastCell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
 }
 
-- (UIView *)logisticsTrackViewController:(GHLogisticsTrackViewController *)logisticsTrackViewController viewForHeader:(UIView *)header {
-    if (self.indexPath.row == 0) {
-        return self.header;
-    } else {
-        return nil;
-    }
-}
+//- (UIView *)headerForLogisticsTrackViewController:(GHLogisticsTrackViewController *)logisticsTrackViewController {
+//    if (self.indexPath.row == 0) {
+//           return self.header;
+//       } else {
+//           return nil;
+//       }
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 2;
@@ -149,6 +149,10 @@
         vc.navTitle = @"样式2";
     }
     vc.delegate = self;
+    vc.number = @"8430110";
+    vc.courierCompany = @"顺丰";
+    vc.deliveryStatus = @"正在配送";
+    vc.url = @"http://img5.imgtn.bdimg.com/it/u=1785605861,1850750886&fm=26&gp=0.jpg";
     self.vc = vc;
     weakself(self);
     vc.reloadDataBlock = ^{

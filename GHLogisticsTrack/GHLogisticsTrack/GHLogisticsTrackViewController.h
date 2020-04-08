@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  返回Header
  */
-- (UIView *)logisticsTrackViewController:(GHLogisticsTrackViewController *)logisticsTrackViewController viewForHeader:(UIView *)header;
+- (UIView *)headerForLogisticsTrackViewController:(GHLogisticsTrackViewController *)logisticsTrackViewController;
 
 /**
  *  返回cell
@@ -43,6 +43,26 @@ typedef void (^LogisticsTrackReloadDataBlock)(void);
 @property (nonatomic , weak) id <GHLogisticsTrackViewDelagte> delegate;
 
 @property (nonatomic , copy) NSString *navTitle;;
+
+/**
+ *  配送单号
+ */
+@property (nonatomic , copy) NSString *number;;
+
+/**
+ *  配送快递公司
+ */
+@property (nonatomic , copy) NSString *courierCompany;
+
+/**
+ *  配送状态
+ */
+@property (nonatomic , copy) NSString *deliveryStatus;
+
+/**
+ *  图标
+ */
+@property (nonatomic , copy) NSString *url;
 
 @end
 

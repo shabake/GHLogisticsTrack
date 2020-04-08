@@ -1,46 +1,61 @@
 //
-//  GHLogisticsTrackHeader.m
+//  GHLogisticsTrackHeaderView.m
 //  GHLogisticsTrack
 //
-//  Created by mac on 2019/12/6.
-//  Copyright © 2019 GHome. All rights reserved.
+//  Created by mac on 2020/4/8.
+//  Copyright © 2020 GHome. All rights reserved.
 //
 
-#import "GHLogisticsTrackExampleStyle1Header.h"
+#import "GHLogisticsTrackHeaderView.h"
 #import "UIImageView+WebCache.h"
-#import "GHLogisticsTrackModel.h"
 
-@interface GHLogisticsTrackExampleStyle1Header()
+@interface GHLogisticsTrackHeaderView()
+
 @property (nonatomic , strong) UILabel *trackingNumber;
 @property (nonatomic , strong) UILabel *company;
 @property (nonatomic , strong) UILabel *status;
 @property (nonatomic , strong) UILabel *copy;
 @property (nonatomic , strong) UIImageView *logo;
-@end
-@implementation GHLogisticsTrackExampleStyle1Header
 
-- (void)setLogisticsTrackModel:(GHLogisticsTrackModel *)logisticsTrackModel {
-    self.trackingNumber.text = [NSString stringWithFormat:@"配送单号:%@",logisticsTrackModel.number.length ? logisticsTrackModel.number:@""];
-    
-    self.company.text = [NSString stringWithFormat:@"配送公司:%@",logisticsTrackModel.expName.length ? logisticsTrackModel.expName:@""];
-    
-    self.copy.hidden = logisticsTrackModel.number.length ? NO:YES;
-    
-    self.status.attributedText = [self getRealStatusWithLogisticsTrackModel:logisticsTrackModel];
-    [self.logo sd_setImageWithURL:[NSURL URLWithString:logisticsTrackModel.logo]];
+@end
+
+@implementation GHLogisticsTrackHeaderView
+
+- (void)setUrl:(NSString *)url {
+    [self.logo sd_setImageWithURL:[NSURL URLWithString:url]];
 }
 
-- (NSAttributedString *)getRealStatusWithLogisticsTrackModel:(GHLogisticsTrackModel *)logisticsTrackModel {
-    if (!logisticsTrackModel.deliverystatusStr.length) {
+- (void)setImageName:(NSString *)imageName {
+    _imageName = imageName;
+    self.logo.image = [UIImage imageNamed:imageName];
+}
+
+- (void)setDeliveryStatus:(NSString *)deliveryStatus {
+    _deliveryStatus = deliveryStatus;
+    self.status.attributedText = [self getRealStatusWithDeliveryStatus:deliveryStatus];
+}
+
+- (NSAttributedString *)getRealStatusWithDeliveryStatus:(NSString *)deliveryStatus {
+    if (!deliveryStatus.length) {
         return nil;
     }
-    NSString *status = [NSString stringWithFormat:@"物流状态:%@",logisticsTrackModel.deliverystatusStr];
+    NSString *status = [NSString stringWithFormat:@"物流状态:%@",deliveryStatus];
     NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:status];
-    NSRange range = [status rangeOfString:logisticsTrackModel.deliverystatusStr];
+    NSRange range = [status rangeOfString:deliveryStatus];
     [attriStr addAttributes:@{NSForegroundColorAttributeName:UIColorFromRGB(0x2A2A2A)} range:range];
     return attriStr;
 }
 
+- (void)setCourierCompany:(NSString *)courierCompany {
+    _courierCompany = courierCompany;
+    self.company.text = [NSString stringWithFormat:@"配送公司:%@",courierCompany];
+}
+
+- (void)setNumber:(NSString *)number {
+    _number = number;
+    self.trackingNumber.text = [NSString stringWithFormat:@"配送单号:%@",number];
+    self.copy.hidden = number.length ? NO:YES;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self == [super initWithFrame:frame]) {
@@ -92,18 +107,17 @@
     }];
 }
 
-
 - (void)clickLook {
-//    if (self.didClickLookBlock) {
-//        self.didClickLookBlock();
-//    }
+    //    if (self.didClickLookBlock) {
+    //        self.didClickLookBlock();
+    //    }
 }
 
 - (void)clickCopy {
     
-//    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-//    pasteboard.string = self.logisticsTrackModel.courierPhone;
-//    [FSToastTool makeToast:@"复制成功" targetView:kKeyWindow];
+    //    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    //    pasteboard.string = self.logisticsTrackModel.courierPhone;
+    //    [FSToastTool makeToast:@"复制成功" targetView:kKeyWindow];
 }
 
 - (UILabel *)company {
@@ -137,7 +151,7 @@
         _copy.layer.cornerRadius = 3;
         _copy.layer.masksToBounds = YES;
         _copy.hidden = YES;
-//        [_copy addTapAction:self selector:@selector(clickCopy)];
+        //        [_copy addTapAction:self selector:@selector(clickCopy)];
         _copy.textColor = UIColorFromRGB(0x333333);
     }
     return _copy;
@@ -146,6 +160,7 @@
 - (UIImageView *)logo {
     if (_logo == nil) {
         _logo = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@""]];
+        _logo.backgroundColor = [UIColor lightGrayColor];
     }
     return _logo;
 }
@@ -155,7 +170,7 @@
         _status = [[UILabel alloc]init];
         _status.font = [UIFont systemFontOfSize:12];
         _status.textColor = UIColorFromRGB(0x666666);
-        _status.text = @"123";
+        _status.text = @"配送状态";
     }
     return _status;
 }

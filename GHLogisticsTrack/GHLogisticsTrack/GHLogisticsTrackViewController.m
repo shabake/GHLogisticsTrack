@@ -7,11 +7,13 @@
 //
 
 #import "GHLogisticsTrackViewController.h"
+#import "GHLogisticsTrackHeaderView.h"
 
 @interface GHLogisticsTrackViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic , strong) UITableView *tableView;
 @property (nonatomic , strong) UIView *header;
+@property (nonatomic , strong) GHLogisticsTrackHeaderView *headerView;
 
 @end
 
@@ -41,8 +43,14 @@
 
 - (void)setupUI {
     [self.view addSubview:self.tableView];
-    if (self.header) {
-        self.tableView.tableHeaderView = self.header;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(headerForLogisticsTrackViewController:)]) {
+        self.tableView.tableHeaderView = [self.delegate headerForLogisticsTrackViewController:self];
+    } else {
+        self.headerView.number = self.number;
+        self.headerView.courierCompany = self.courierCompany;
+        self.headerView.deliveryStatus = self.deliveryStatus;
+//        self.headerView.url = self.url;
+        self.tableView.tableHeaderView = self.headerView;
     }
 }
 
@@ -97,11 +105,11 @@
     return _tableView;
 }
 
-- (UIView *)header {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(logisticsTrackViewController:viewForHeader:)]) {
-        return [self.delegate logisticsTrackViewController:self viewForHeader:nil];
+- (GHLogisticsTrackHeaderView *)headerView {
+    if (_headerView == nil) {
+        _headerView = [[GHLogisticsTrackHeaderView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 90)];
     }
-    return nil;;
+    return _headerView;
 }
 
 @end

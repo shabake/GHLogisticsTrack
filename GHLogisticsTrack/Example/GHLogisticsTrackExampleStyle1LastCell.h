@@ -32,6 +32,7 @@ typedef void (^GHLogisticsTrackExampleStyle1LastCellDidClickPhoneNumberBlock)(NS
  * 计算高度
  */
 + (CGFloat)cellHeightWithContent:(GHLogisticsTrackModel *)logisticsTrackModel logisticsTrackStatusModel:(GHLogisticsTrackStatusModel *)statusModel;
+
 @end
 
 NS_ASSUME_NONNULL_END
