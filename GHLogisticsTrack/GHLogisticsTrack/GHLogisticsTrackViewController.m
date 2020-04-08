@@ -78,17 +78,15 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (self.delegate && [self.delegate respondsToSelector:@selector(numberOfSectionsInLogisticsTrackView:tableView:)]) {
         return [self.delegate numberOfSectionsInLogisticsTrackView:self tableView:tableView];
-    } else {
-        return 1;
     }
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     if (self.delegate && [self.delegate respondsToSelector:@selector(logisticsTrackView:tableView:numberOfRowsInSection:)]) {
         return [self.delegate logisticsTrackView:self tableView:tableView numberOfRowsInSection:section];
     }
-    return 0;
+    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

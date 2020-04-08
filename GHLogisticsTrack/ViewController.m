@@ -56,7 +56,9 @@
             logisticsTrackModel.list = listArray.copy;
             weakSelf.logisticsTrackModel = logisticsTrackModel;
             weakSelf.header.logisticsTrackModel = weakSelf.logisticsTrackModel;
-            weakSelf.vc.delegate = weakSelf;
+            if (weakSelf.indexPath.row != 0 ) {
+                weakSelf.vc.delegate = weakSelf;
+            }
         } else {
             NSLog(@"服务器内部错误");
         }
@@ -71,58 +73,41 @@
     return 1;
 }
 
-//- (UITableViewCell *)itemOfLogisticsTrackView:(GHLogisticsTrackViewController *)logisticsTrackView tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
-//    GHLogisticsTrackStatusModel *logisticsTrackStatusModel = self.logisticsTrackModel.list[indexPath.section];
-//    [tableView registerClass:[GHLogisticsTrackExampleStyle1Cell class] forCellReuseIdentifier:@"GHLogisticsTrackExampleStyle1CellID"];
-//    [tableView registerClass:[GHLogisticsTrackExampleStyle1LastCell class] forCellReuseIdentifier:@"GHLogisticsTrackExampleStyle1LastCellID"];
-//    if (self.indexPath.row == 0) {
-//        if (indexPath.section == 0) {
-//            GHLogisticsTrackExampleStyle1LastCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1LastCellID"];
-//            cell.indexPath = indexPath;
-//            cell.didClickPhoneNumberBlock = ^(NSString * _Nonnull number) {
-//                NSLog(@"number:%@",number);
-//            };
-//            cell.logisticsTrackModel = self.logisticsTrackModel;
-//            cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
-//            return cell;
-//        }
-//        GHLogisticsTrackExampleStyle1Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1CellID"];
-//        cell.didClickPhoneNumberBlock = ^(NSString * _Nonnull number) {
-//            NSLog(@"number:%@",number);
-//        };
-//        cell.indexPath = indexPath;
-//        cell.logisticsTrackModel = self.logisticsTrackModel;
-//        cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
-//        return cell;
-//    }
-//    GHLogisticsTrackExampleStyle1LastCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1LastCellID"];
-//    cell.indexPath = indexPath;
-//    cell.logisticsTrackModel = self.logisticsTrackModel;
-//    cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
-//    cell.didClickPhoneNumberBlock = ^(NSString * _Nonnull number) {
-//        NSLog(@"number:%@",number);
-//    };
-//    return cell;
-//}
+- (UITableViewCell *)itemOfLogisticsTrackView:(GHLogisticsTrackViewController *)logisticsTrackView tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+    GHLogisticsTrackStatusModel *logisticsTrackStatusModel = self.logisticsTrackModel.list[indexPath.section];
+    [tableView registerClass:[GHLogisticsTrackExampleStyle1Cell class] forCellReuseIdentifier:@"GHLogisticsTrackExampleStyle1CellID"];
+    [tableView registerClass:[GHLogisticsTrackExampleStyle1LastCell class] forCellReuseIdentifier:@"GHLogisticsTrackExampleStyle1LastCellID"];
+    if (indexPath.section == 0) {
+        GHLogisticsTrackExampleStyle1LastCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1LastCellID"];
+        cell.indexPath = indexPath;
+        cell.didClickPhoneNumberBlock = ^(NSString * _Nonnull number) {
+            NSLog(@"number:%@",number);
+        };
+        cell.logisticsTrackModel = self.logisticsTrackModel;
+        cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
+        return cell;
+    }
+    GHLogisticsTrackExampleStyle1Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"GHLogisticsTrackExampleStyle1CellID"];
+    cell.didClickPhoneNumberBlock = ^(NSString * _Nonnull number) {
+        NSLog(@"number:%@",number);
+    };
+    cell.indexPath = indexPath;
+    cell.logisticsTrackModel = self.logisticsTrackModel;
+    cell.logisticsTrackStatusModel = logisticsTrackStatusModel;
+    return cell;
+}
 
-//- (CGFloat)logisticsTrackView:(GHLogisticsTrackViewController *)logisticsTrackView tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (self.indexPath.row == 0) {
-//        if (indexPath.section == 0) {
-//            return [GHLogisticsTrackExampleStyle1LastCell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
-//        } else {
-//            return [GHLogisticsTrackExampleStyle1Cell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
-//        }
-//    }
-//    return [GHLogisticsTrackExampleStyle1LastCell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
-//}
+- (CGFloat)logisticsTrackView:(GHLogisticsTrackViewController *)logisticsTrackView tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return [GHLogisticsTrackExampleStyle1LastCell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
+    } else {
+        return [GHLogisticsTrackExampleStyle1Cell cellHeightWithContent:self.logisticsTrackModel logisticsTrackStatusModel:self.logisticsTrackModel.list[indexPath.section]];
+    }
+}
 
-//- (UIView *)headerForLogisticsTrackViewController:(GHLogisticsTrackViewController *)logisticsTrackViewController {
-//    if (self.indexPath.row == 0) {
-//           return self.header;
-//       } else {
-//           return nil;
-//       }
-//}
+- (UIView *)headerForLogisticsTrackViewController:(GHLogisticsTrackViewController *)logisticsTrackViewController {
+    return self.header;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 2;
@@ -132,9 +117,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCellID"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (indexPath.row == 0) {
-        cell.textLabel.text = @"样式1";
+        cell.textLabel.text = @"默认样式";
     } else if (indexPath.row == 1) {
-        cell.textLabel.text = @"样式2";
+        cell.textLabel.text = @"代理样式";
     }
     return cell;;
 }
@@ -144,11 +129,11 @@
     
     GHLogisticsTrackViewController *vc = [[GHLogisticsTrackViewController alloc] init];
     if (indexPath.row == 0) {
-        vc.navTitle = @"样式1";
+        vc.navTitle = @"默认样式";
     } else {
-        vc.navTitle = @"样式2";
+        vc.navTitle = @"代理样式";
+        vc.delegate = self;
     }
-    vc.delegate = self;
     vc.number = @"8430110";
     vc.courierCompany = @"顺丰";
     vc.deliveryStatus = @"正在配送";
@@ -159,7 +144,6 @@
 
     vc.url = @"http://img5.imgtn.bdimg.com/it/u=1785605861,1850750886&fm=26&gp=0.jpg";
     vc.imageName =  @"logistics_delivery";
-    
     self.vc = vc;
     weakself(self);
     vc.reloadDataBlock = ^{
@@ -182,7 +166,7 @@
 
 - (GHLogisticsTrackExampleStyle1Header *)header {
     if (_header == nil) {
-        _header = [[GHLogisticsTrackExampleStyle1Header alloc]initWithFrame:CGRectMake(0, 0, 0, 84)];
+        _header = [[GHLogisticsTrackExampleStyle1Header alloc]initWithFrame:CGRectMake(0, 0, 0, 90)];
     }
     return _header;
 }
