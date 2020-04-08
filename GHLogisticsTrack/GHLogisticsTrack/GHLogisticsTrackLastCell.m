@@ -22,23 +22,12 @@
 
 - (void)setImageName:(NSString *)imageName {
     _imageName = imageName;
-    self.icon.image = [UIImage imageNamed:imageName];
+    self.icon.image = [UIImage imageNamed:imageName.length ? imageName:@"logistics_delivery"];
 }
 
 - (void)setDeliveryStatus:(NSString *)deliveryStatus {
     self.status.text = deliveryStatus;
 }
-
-//- (void)setLogisticsTrackModel:(GHLogisticsTrackModel *)logisticsTrackModel {
-//    _logisticsTrackModel = logisticsTrackModel;
-//    if (logisticsTrackModel.list.count - 1 == self.indexPath.section) {
-//        self.line.hidden = YES;
-//    } else {
-//        self.line.hidden = NO;
-//    }
-//    self.icon.image = [UIImage imageNamed:logisticsTrackModel.imageName];
-//    self.status.text = logisticsTrackModel.deliverystatusStr;
-//}
 
 - (void)setTime:(NSString *)time {
     self.date.text = time;
@@ -46,7 +35,9 @@
 
 - (void)setStatusStr:(NSString *)statusStr {
     _statusStr = statusStr;
-    
+    if (statusStr.length == 0) {
+        return;
+    }
     NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:statusStr];
     [attriStr addAttributes:@{NSForegroundColorAttributeName:UIColorFromRGB(0x666666)} range:NSMakeRange(0, attriStr.length)];
     if (self.phoneNumber.count) {

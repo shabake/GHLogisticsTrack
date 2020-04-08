@@ -10,11 +10,11 @@
 #import "GHLogisticsTrackModel.h"
 #import "GHLogisticsTrackStatusModel.h"
 #import "NSString+GH.h"
-#import "UITextView+Category.h"
+#import "GHTextView.h"
 
 @interface GHLogisticsTrackExampleStyle1LastCell()<UITextViewDelegate>
 
-@property (nonatomic , strong) UITextView *info;
+@property (nonatomic , strong) GHTextView *info;
 @property (nonatomic , strong) UILabel *date;
 @property (nonatomic , strong) UILabel *status;
 @property (nonatomic , strong) UIView *line;
@@ -68,7 +68,7 @@
     return 20 + 16 + 5 + infoSize.height+ 5 +16 + 14;
 }
 
-- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction  API_AVAILABLE(ios(10.0)){
+- (BOOL)textView:(GHTextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction  API_AVAILABLE(ios(10.0)){
     NSString *str = [self.logisticsTrackStatusModel.status substringWithRange:characterRange];
     if (self.didClickPhoneNumberBlock) {
         self.didClickPhoneNumberBlock(str);
@@ -149,9 +149,9 @@
     return _line;
 }
 
-- (UITextView *)info {
+- (GHTextView *)info {
     if (_info == nil) {
-        _info = [[UITextView alloc]init];
+        _info = [[GHTextView alloc]init];
         _info.font = [UIFont systemFontOfSize:12];
         _info.editable = NO;
         _info.textColor = UIColorFromRGB(0x666666);

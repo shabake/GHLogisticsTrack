@@ -22,7 +22,7 @@
 @implementation GHLogisticsTrackHeaderView
 
 - (void)setUrl:(NSString *)url {
-    [self.logo sd_setImageWithURL:[NSURL URLWithString:url]];
+    [self.logo sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"kuaidi"]];
 }
 
 - (void)setImageName:(NSString *)imageName {
@@ -48,12 +48,12 @@
 
 - (void)setCourierCompany:(NSString *)courierCompany {
     _courierCompany = courierCompany;
-    self.company.text = [NSString stringWithFormat:@"配送公司:%@",courierCompany];
+    self.company.text = [NSString stringWithFormat:@"配送公司:%@",courierCompany.length ?courierCompany:@""];
 }
 
 - (void)setNumber:(NSString *)number {
     _number = number;
-    self.trackingNumber.text = [NSString stringWithFormat:@"配送单号:%@",number];
+    self.trackingNumber.text = [NSString stringWithFormat:@"配送单号:%@",number.length ? number:@""];
     self.copy.hidden = number.length ? NO:YES;
 }
 
@@ -160,7 +160,6 @@
 - (UIImageView *)logo {
     if (_logo == nil) {
         _logo = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@""]];
-        _logo.backgroundColor = [UIColor lightGrayColor];
     }
     return _logo;
 }

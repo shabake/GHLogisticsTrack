@@ -14,8 +14,8 @@
             filePath = "GHLogisticsTrack/GHLogisticsTrack/GHLogisticsTrackLastCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "GHLogisticsTrackLastCell"
             landmarkType = "3">
          </BreakpointContent>
@@ -51,22 +51,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C314C356-EB97-4B67-B070-1D37B644015A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GHLogisticsTrack/GHLogisticsTrack/GHLogisticsTrackHeaderView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "-setUrl:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "EA5C3559-15FB-4131-A06A-95F85333C918"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -77,6 +61,22 @@
             startingLineNumber = "51"
             endingLineNumber = "51"
             landmarkName = "-setupUI"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5EA30E63-FDA1-4EF2-B22B-29B15F45D62B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GHLogisticsTrack/GHLogisticsTrack/GHLogisticsTrackLastCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "-setStatusStr:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

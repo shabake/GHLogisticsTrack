@@ -18,6 +18,7 @@
 		048D2233243D878900525C20 /* GHLogisticsTrackHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D2232243D878900525C20 /* GHLogisticsTrackHeaderView.m */; };
 		048D2236243DB45000525C20 /* GHLogisticsTrackLastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D2235243DB45000525C20 /* GHLogisticsTrackLastCell.m */; };
 		048D2239243DBEF500525C20 /* GHLogisticsTrackStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D2238243DBEF500525C20 /* GHLogisticsTrackStyleCell.m */; };
+		048D223C243DCC6400525C20 /* GHTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D223B243DCC6400525C20 /* GHTextView.m */; };
 		0491012F23AF64110011C514 /* GHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491012E23AF64110011C514 /* GHNavigationController.m */; };
 		04E61C4F243C112900030F65 /* NSString+GH.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E61C4E243C112900030F65 /* NSString+GH.m */; };
 		04E61C5D243C28A200030F65 /* GHLogisticsTrackExampleStyle1Header.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E61C53243C28A100030F65 /* GHLogisticsTrackExampleStyle1Header.m */; };
@@ -73,6 +74,8 @@
 		048D2235243DB45000525C20 /* GHLogisticsTrackLastCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHLogisticsTrackLastCell.m; sourceTree = "<group>"; };
 		048D2237243DBEF500525C20 /* GHLogisticsTrackStyleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHLogisticsTrackStyleCell.h; sourceTree = "<group>"; };
 		048D2238243DBEF500525C20 /* GHLogisticsTrackStyleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHLogisticsTrackStyleCell.m; sourceTree = "<group>"; };
+		048D223A243DCC6400525C20 /* GHTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHTextView.h; sourceTree = "<group>"; };
+		048D223B243DCC6400525C20 /* GHTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHTextView.m; sourceTree = "<group>"; };
 		0491012D23AF64110011C514 /* GHNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHNavigationController.h; sourceTree = "<group>"; };
 		0491012E23AF64110011C514 /* GHNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHNavigationController.m; sourceTree = "<group>"; };
 		04E61C4D243C112900030F65 /* NSString+GH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GH.h"; sourceTree = "<group>"; };
@@ -163,6 +166,8 @@
 				04E61C4E243C112900030F65 /* NSString+GH.m */,
 				04E61C63243C405500030F65 /* UITextView+Category.h */,
 				04E61C64243C405500030F65 /* UITextView+Category.m */,
+				048D223A243DCC6400525C20 /* GHTextView.h */,
+				048D223B243DCC6400525C20 /* GHTextView.m */,
 				0491012D23AF64110011C514 /* GHNavigationController.h */,
 				0491012E23AF64110011C514 /* GHNavigationController.m */,
 				0452557F239A22570075ACC8 /* PrefixHeader.pch */,
@@ -490,6 +495,7 @@
 				04E61C5D243C28A200030F65 /* GHLogisticsTrackExampleStyle1Header.m in Sources */,
 				048D2239243DBEF500525C20 /* GHLogisticsTrackStyleCell.m in Sources */,
 				04E61C65243C405500030F65 /* UITextView+Category.m in Sources */,
+				048D223C243DCC6400525C20 /* GHTextView.m in Sources */,
 				04525548239A14970075ACC8 /* ViewController.m in Sources */,
 				04E61C5E243C28A200030F65 /* GHLogisticsTrackExampleStyle1LastCell.m in Sources */,
 				04525542239A14970075ACC8 /* AppDelegate.m in Sources */,

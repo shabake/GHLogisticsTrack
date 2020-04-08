@@ -51,6 +51,7 @@
         self.headerView.number = self.number;
         self.headerView.courierCompany = self.courierCompany;
         self.headerView.deliveryStatus = self.deliveryStatus;
+        self.headerView.url = self.url;
         self.tableView.tableHeaderView = self.headerView;
     }
 }

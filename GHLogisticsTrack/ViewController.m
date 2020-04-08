@@ -134,6 +134,7 @@
         vc.navTitle = @"代理样式";
         vc.delegate = self;
     }
+    /// 设置数据
     vc.number = @"8430110";
     vc.courierCompany = @"顺丰";
     vc.deliveryStatus = @"正在配送";
@@ -142,8 +143,7 @@
     @"【那警方转运中心】 已发出 下一1站 【北京市石景山区首钢分公司公司】",
                    @"【河北】 已发出 下一1站 【北京市石景山区首钢分公司公司】"];
 
-    vc.url = @"http://img5.imgtn.bdimg.com/it/u=1785605861,1850750886&fm=26&gp=0.jpg";
-    vc.imageName =  @"logistics_delivery";
+    vc.url = @"";
     self.vc = vc;
     weakself(self);
     vc.reloadDataBlock = ^{

@@ -32,10 +32,11 @@
     self.date.text = time;
 }
 
-
 - (void)setStatusStr:(NSString *)statusStr {
     _statusStr = statusStr;
-    
+    if (statusStr.length == 0) {
+        return;
+    }
     NSMutableAttributedString *attriStr = [[NSMutableAttributedString alloc] initWithString:statusStr];
     [attriStr addAttributes:@{NSForegroundColorAttributeName:UIColorFromRGB(0x666666)} range:NSMakeRange(0, attriStr.length)];
     if (self.phoneNumber.count) {
